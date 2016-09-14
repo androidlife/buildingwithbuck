@@ -1,0 +1,4 @@
+<resources>
+  <string name="app_name">BuckBuild</string>
+  <string name="this_app_has_been_built_with_buck">This app has been built with buck</string>
+</resources>

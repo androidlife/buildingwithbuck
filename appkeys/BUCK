@@ -1,0 +1,11 @@
+keystore(
+ name = 'firstapp-key',
+ store = 'firstappkeys/debug.keystore',
+ # we must tell buck what is pwd, alias and such stuff
+ # of this keystore, so that it can use it during
+ #our build
+ # for that we need to define *.properties file, 
+ # where we keep those stuff
+ properties = 'firstappkeys/key.properties',
+ visibility = ['PUBLIC']
+)

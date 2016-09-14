@@ -1,0 +1,57 @@
+android_prebuilt_aar(
+ name = 'android-appcompat-v7-24.2.0',
+ aar = 'aar/appcompat-v7-24.2.0.aar',
+ visibility = ['PUBLIC']
+)
+#TaskStackBuilder
+android_prebuilt_aar(
+ name = 'android-support-core-utils-24.2.0',
+ aar = 'aar/support-core-utils-24.2.0.aar',
+ visibility = ['PUBLIC']
+)
+#DrawerLayout and stuff
+android_prebuilt_aar(
+ name = 'android-support-core-ui-24.2.0',
+ aar = 'aar/support-core-ui-24.2.0.aar',
+ visibility = ['PUBLIC']
+)
+#Support fragment
+
+android_prebuilt_aar(
+ name = 'android-support-fragment-24.2.0',
+ aar = 'aar/support-fragment-24.2.0.aar',
+ visibility = ['PUBLIC']
+)
+#AppCompat
+
+android_prebuilt_aar(
+ name = 'android-support-compat-24.2.0',
+ aar = 'aar/support-compat-24.2.0.aar',
+ visibility = ['PUBLIC']
+)
+
+#Support Vector drawable
+android_prebuilt_aar(
+ name = 'android-support-vector-drawable-24.2.0',
+ aar = 'aar/support-vector-drawable-24.2.0.aar',
+ visibility = ['PUBLIC']
+)
+#
+
+
+# We can remotely fetch the aar files
+# to work it before one must call
+# buck fetch //libs:timber-source
+# and then only build can be run
+
+android_prebuilt_aar(
+ name = 'timber-4.3.0',
+ aar = ':timber-source',
+ visibility = ['PUBLIC']
+)
+remote_file(
+  name = 'timber-source',
+  url = 'https://repo1.maven.org/maven2/com/jakewharton/timber/timber/4.3.0/timber-4.3.0.aar',
+  sha1 = 'f5bf08c2db5d0c382b98bb5a5460bc4cd53a9da9',
+  out = 'timber-4.3.0.aar'
+)

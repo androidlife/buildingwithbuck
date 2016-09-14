@@ -1,0 +1,41 @@
+import os
+import glob
+
+def android_aars(dir):
+    glob_pattern = os.path.join(dir, '*.aar')
+    for file in glob.glob(glob_pattern):
+    	basePath = os.path.basename(file)
+        filename = basePath.replace('.aar','')
+        android_prebuilt_aar(
+            	name = filename,
+            	# it only takes value from current dir
+            	# to the folder
+            	# current dir = root project + libs
+            	# so folder must be present at
+            	# root project/libs/aar/
+ 				aar = 'aar/'+basePath,
+ 				visibility = ['PUBLIC']
+		)
+
+# don't know why it requires a full path for the aar
+# this function is just a test on what we can do
+# it is not efficient one
+android_aars('/Users/laaptu/workspace/buck_build/libs/aar')
+
+
+# We can remotely fetch the aar files
+# to work it before one must call
+# buck fetch //libs:timber-source
+# and then only build can be run
+
+android_prebuilt_aar(
+ name = 'timber-4.3.0',
+ aar = ':timber-source',
+ visibility = ['PUBLIC']
+)
+remote_file(
+  name = 'timber-source',
+  url = 'https://repo1.maven.org/maven2/com/jakewharton/timber/timber/4.3.0/timber-4.3.0.aar',
+  sha1 = 'f5bf08c2db5d0c382b98bb5a5460bc4cd53a9da9',
+  out = 'timber-4.3.0.aar'
+)

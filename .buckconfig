@@ -1,0 +1,11 @@
+# The configuration file for buck for entire project
+# is to be situated in the root project folder
+# By default, it takes all the values of /buck location folder/.buckconfig
+# Alias,
+[alias]
+  app=//firstapp:app-binary
+#// from root folder
+#firstapp folder name where BUCK file needs to be present
+#app-binary, rule name that needs to be defined inside firstapp/BUCK
+[android]
+ target = android-24
